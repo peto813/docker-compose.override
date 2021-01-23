@@ -1,0 +1,7 @@
+FROM node:13
+WORKDIR /services/identity
+COPY . .
+RUN yarn global add typescript ts-node
+RUN yarn install
+RUN chmod +x docker-entrypoint.sh
+ENTRYPOINT ["/services/identity/docker-entrypoint.sh"]

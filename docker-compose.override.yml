@@ -1,0 +1,16 @@
+version: '3.5'
+services:
+    # #Application Services
+    identity:
+        build:
+            dockerfile: Dockerfile.dev
+        volumes:
+            # - type: volume
+            #   source: identity_vol
+            #   target: /services/identity
+            - type: bind
+              source: ./services/identity
+              target: /services/identity
+        command: yarn start:dev
+volumes:
+    identity_vol:
